@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://abdallared.github.io/atlas-home-appliances",
+  "homepage": "https://fathy20.github.io/ATLS",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
