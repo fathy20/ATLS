@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Atlas Brand Colors - White & Blue Theme */
+  --primary: #1E88E5;
+  --primary-dark: #1565C0;
+  --primary-light: #42A5F5;
+  --secondary: #64B5F6;
+  --accent-yellow: #90CAF9;
+  --accent-green: #2196F3;
+  --accent-purple: #1976D2;
+  --dark: #01579B;
+  --gray: #90CAF9;
+  --light-gray: #E3F2FD;
+  --white: #ffffff;
+  --text-dark: #01579B;
+  --text-light: #455A64;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Poppins', 'Cairo', sans-serif;
+  background-color: var(--white);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  font-size: 14px;
+}
+
+/* Arabic text support */
+[lang="ar"], .ar {
+  font-family: 'Cairo', 'Poppins', sans-serif;
+  direction: rtl;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
