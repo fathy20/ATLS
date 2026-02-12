@@ -190,7 +190,6 @@ export default function Products() {
     <section className="products-section" style={{ paddingTop: '120px' }}>
       <div className="products-header">
         <p className="section-tag">كتالوج المنتجات</p>
-        <h2 className="products-title">تشكيلة <strong>Atlas</strong></h2>
       </div>
 
       {/* Category Tabs */}
@@ -266,9 +265,6 @@ export default function Products() {
             <h3 className="products-title" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)' }}>
               <strong>منتجات كهربائية</strong>
             </h3>
-            <p style={{ color: 'var(--text-light)', fontSize: '0.9rem', marginTop: '0.5rem' }}>
-              إضاءة LED وحلول كهربائية حديثة
-            </p>
           </div>
           <div className="products-grid">
             {electricalProducts.map((product, index) => (

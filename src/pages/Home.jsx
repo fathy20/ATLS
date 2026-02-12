@@ -234,7 +234,6 @@ export default function Home() {
       <section className="section hero">
         <div className="hero-bg"></div>
         <div className="hero-content">
-          <p className="hero-tag">شركة أطلس لإستيراد المواد الكهربائية والمنزلية</p>
           <h1 className="hero-title">
             <img src={logoImg} alt="Atlas Logo" className="hero-logo" /><br />
             <span className="hero-title-sub">Home Appliances</span>
