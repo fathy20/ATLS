@@ -6,7 +6,7 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/atlas-home-appliances">
+    <BrowserRouter basename="/ATLS">
       <App />
     </BrowserRouter>
   </StrictMode>,
