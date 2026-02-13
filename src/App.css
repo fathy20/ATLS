@@ -108,7 +108,7 @@
   text-align: center;
   max-width: 800px;
   padding: 0 1.5rem;
-  margin-top: -40px;
+  margin-top: -80px;
 }
 
 .hero-tag {
@@ -133,7 +133,7 @@
 }
 
 .hero-logo {
-  height: clamp(80px, 15vw, 140px);
+  height: clamp(110px, 20vw, 200px);
   width: auto;
   display: inline-block;
   vertical-align: middle;
