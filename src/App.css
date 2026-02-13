@@ -132,7 +132,7 @@
 }
 
 .hero-logo {
-  height: clamp(120px, 20vw, 220px);
+  height: clamp(100px, 18vw, 180px);
   width: auto;
   display: inline-block;
   vertical-align: middle;
