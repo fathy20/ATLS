@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import lambImg from '../assets/lamb.png'
@@ -148,7 +149,8 @@ const homeProducts = [
 
 export default function Products() {
   const productRefs = useRef([])
-  const [activeCategory, setActiveCategory] = useState('electrical') // 'electrical' or 'home'
+  const [searchParams] = useSearchParams()
+  const category = searchParams.get('category') || 'electrical' // Get category from URL
 
   useEffect(() => {
     // Restore the "Old Scroll" Diagonal Animation
@@ -192,74 +194,8 @@ export default function Products() {
         <p className="section-tag">كتالوج المنتجات</p>
       </div>
 
-      {/* Category Tabs */}
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        gap: '1rem', 
-        marginBottom: '3rem',
-        flexWrap: 'wrap'
-      }}>
-        <button 
-          onClick={() => setActiveCategory('electrical')}
-          style={{
-            padding: '0.8rem 2.5rem',
-            fontSize: '1rem',
-            fontFamily: 'Cairo, sans-serif',
-            fontWeight: '600',
-            border: 'none',
-            borderRadius: '50px',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            background: activeCategory === 'electrical' ? 'var(--primary)' : 'var(--white)',
-            color: activeCategory === 'electrical' ? 'var(--white)' : 'var(--text-dark)',
-            boxShadow: activeCategory === 'electrical' 
-              ? '0 4px 15px rgba(30, 136, 229, 0.3)' 
-              : '0 2px 8px rgba(0,0,0,0.08)',
-            transform: activeCategory === 'electrical' ? 'translateY(-2px)' : 'translateY(0)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem'
-          }}
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-          </svg>
-          منتجات كهربائية
-        </button>
-        
-        <button 
-          onClick={() => setActiveCategory('home')}
-          style={{
-            padding: '0.8rem 2.5rem',
-            fontSize: '1rem',
-            fontFamily: 'Cairo, sans-serif',
-            fontWeight: '600',
-            border: 'none',
-            borderRadius: '50px',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            background: activeCategory === 'home' ? 'var(--primary)' : 'var(--white)',
-            color: activeCategory === 'home' ? 'var(--white)' : 'var(--text-dark)',
-            boxShadow: activeCategory === 'home' 
-              ? '0 4px 15px rgba(30, 136, 229, 0.3)' 
-              : '0 2px 8px rgba(0,0,0,0.08)',
-            transform: activeCategory === 'home' ? 'translateY(-2px)' : 'translateY(0)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem'
-          }}
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-            <polyline points="9 22 9 12 15 12 15 22"/>
-          </svg>
-          منتجات منزلية
-        </button>
-      </div>
-
       {/* Electrical Products Section */}
-      {activeCategory === 'electrical' && (
+      {category === 'electrical' && (
         <div>
           <div className="products-header" style={{ marginBottom: '2rem' }}>
             <h3 className="products-title" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)' }}>
@@ -304,7 +240,7 @@ export default function Products() {
       )}
 
       {/* Home Products Section */}
-      {activeCategory === 'home' && (
+      {category === 'home' && (
         <div>
           <div className="products-header" style={{ marginBottom: '2rem' }}>
             <h3 className="products-title" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)' }}>

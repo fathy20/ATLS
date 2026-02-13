@@ -49,7 +49,7 @@ const features = [
     ), 
     title: 'توصيل سريع', 
     titleEn: 'Fast Delivery', 
-    desc: 'خدمة توصيل سريعة وآمنة تغطي جميع المدن الليبية، مع خيارات دفع متنوعة عند الاستلام.' 
+    desc: 'توصيل سريع' 
   },
   { 
     icon: (
@@ -57,7 +57,7 @@ const features = [
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
       </svg>
     ), 
-    title: 'دعم فني', 
+    title: 'خدمة عملاء', 
     titleEn: '24/7 Support', 
     desc: 'فريق متخصص لخدمة العملاء جاهز للإجابة على استفساراتكم وتقديم الدعم الفني على مدار الساعة.' 
   },
@@ -239,17 +239,17 @@ export default function Home() {
             <span className="hero-title-sub">Home Appliances</span>
           </h1>
           <p className="hero-subtitle">
-            شركة أطلس لإستيراد المواد الكهربائية والمنزلية.
+            شركة أطلس لإستيراد المواد الكهربائية والمنزلية
             نجمع بين التكنولوجيا الحديثة والجودة العالية لنقدم لك تجربة استثنائية.
           </p>
           <div className="hero-buttons">
-            <Link to="/products" className="hero-btn hero-btn-electrical">
+            <Link to="/products?category=electrical" className="hero-btn hero-btn-electrical">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
               </svg>
               الكهربائيات
             </Link>
-            <Link to="/products" className="hero-btn hero-btn-home">
+            <Link to="/products?category=home" className="hero-btn hero-btn-home">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                 <polyline points="9 22 9 12 15 12 15 22"/>

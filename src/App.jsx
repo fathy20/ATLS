@@ -81,7 +81,7 @@ function App() {
               </Link>
             </div>
             <p className="footer-desc">
-              شركة أطلس لإستيراد المواد الكهربائية والمنزلية. نجمع بين التكنولوجيا الحديثة والجودة العالية لنقدم لك تجربة استثنائية.
+              شركة أطلس لإستيراد المواد الكهربائية والمنزلية نجمع بين التكنولوجيا الحديثة والجودة العالية لنقدم لك تجربة استثنائية.
             </p>
           </div>
           
@@ -98,10 +98,8 @@ function App() {
           <div className="footer-col">
             <h4>الأقسام</h4>
             <ul className="footer-links-list">
-              <li><Link to="/products">أجهزة المطبخ</Link></li>
-              <li><Link to="/products">أجهزة كهربائية</Link></li>
-              <li><Link to="/products">إضاءة حديثة</Link></li>
-              <li><Link to="/products">أدوات منزلية</Link></li>
+              <li><Link to="/products?category=electrical">الكهربائيات</Link></li>
+              <li><Link to="/products?category=home">المنزلية</Link></li>
             </ul>
           </div>
 
