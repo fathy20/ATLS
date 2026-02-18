@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useSearchParams, Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import lambImg from '../assets/lamb.png'
@@ -148,36 +148,22 @@ const homeProducts = [
 ]
 
 export default function Products() {
-  const productRefs = useRef([])
   const [searchParams] = useSearchParams()
-  const category = searchParams.get('category') || 'electrical' // Get category from URL
+  const category = searchParams.get('category') || 'electrical'
 
   useEffect(() => {
-    // Restore the "Old Scroll" Diagonal Animation
-    const productCards = gsap.utils.toArray('.product-card')
-    productCards.forEach((card, index) => {
-      const isEven = index % 2 === 0
+    const productCards = gsap.utils.toArray('.product-card-grid')
+    productCards.forEach((card) => {
       gsap.fromTo(card, 
-        { 
-          opacity: 0, 
-          x: isEven ? -100 : 100,
-          y: 60,
-          rotation: isEven ? -3 : 3,
-          scale: 0.95
-        },
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
-          x: 0,
           y: 0,
-          rotation: 0,
-          scale: 1,
-          duration: 1.2,
+          duration: 0.6,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: card,
             start: 'top 90%',
-            end: 'top 40%',
-            scrub: 1,
           }
         }
       )
@@ -186,7 +172,7 @@ export default function Products() {
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
-  }, [])
+  }, [category])
 
   return (
     <section className="products-section" style={{ paddingTop: '120px' }}>
@@ -202,38 +188,23 @@ export default function Products() {
               <strong>منتجات كهربائية</strong>
             </h3>
           </div>
-          <div className="products-grid">
-            {electricalProducts.map((product, index) => (
-              <div 
-                key={product.id} 
-                className="product-card"
-                ref={el => productRefs.current[index] = el}
-                style={{ '--product-color': product.color }}
+          <div className="products-grid-layout">
+            {electricalProducts.map((product) => (
+              <Link 
+                key={product.id}
+                to={`/product/${product.id}`}
+                className="product-card-grid"
+                style={{ '--product-color': product.color, textDecoration: 'none' }}
               >
-                <div className="product-image-wrapper">
-                  <img src={product.image} alt={product.name} className="product-image" />
+                <div className="product-image-wrapper-grid">
+                  <img src={product.image} alt={product.name} className="product-image-grid" />
                 </div>
                 
-                <div className="product-content">
-                  <p className="product-tagline">{product.tagline}</p>
-                  <h3 className="product-name">{product.name}</h3>
-                  <h4 className="product-name-ar">{product.nameAr}</h4>
-                  <p className="product-desc">{product.desc}</p>
-                  
-                  <div className="product-features">
-                    {product.features.map((feature, i) => (
-                      <span key={i} className="product-feature">
-                        <span className="feature-dot" style={{ background: product.color }}></span>
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className="product-footer">
-                    <span className="product-price">{product.price}</span>
-                  </div>
+                <div className="product-content-grid">
+                  <h3 className="product-name-grid">{product.nameAr}</h3>
+                  <p className="product-price-grid">{product.price}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -250,38 +221,23 @@ export default function Products() {
               أدوات مطبخ وأجهزة منزلية عالية الجودة
             </p>
           </div>
-          <div className="products-grid">
-            {homeProducts.map((product, index) => (
-              <div 
-                key={product.id} 
-                className="product-card"
-                ref={el => productRefs.current[electricalProducts.length + index] = el}
-                style={{ '--product-color': product.color }}
+          <div className="products-grid-layout">
+            {homeProducts.map((product) => (
+              <Link 
+                key={product.id}
+                to={`/product/${product.id}`}
+                className="product-card-grid"
+                style={{ '--product-color': product.color, textDecoration: 'none' }}
               >
-                <div className="product-image-wrapper">
-                  <img src={product.image} alt={product.name} className="product-image" />
+                <div className="product-image-wrapper-grid">
+                  <img src={product.image} alt={product.name} className="product-image-grid" />
                 </div>
                 
-                <div className="product-content">
-                  <p className="product-tagline">{product.tagline}</p>
-                  <h3 className="product-name">{product.name}</h3>
-                  <h4 className="product-name-ar">{product.nameAr}</h4>
-                  <p className="product-desc">{product.desc}</p>
-                  
-                  <div className="product-features">
-                    {product.features.map((feature, i) => (
-                      <span key={i} className="product-feature">
-                        <span className="feature-dot" style={{ background: product.color }}></span>
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className="product-footer">
-                    <span className="product-price">{product.price}</span>
-                  </div>
+                <div className="product-content-grid">
+                  <h3 className="product-name-grid">{product.nameAr}</h3>
+                  <p className="product-price-grid">{product.price}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
