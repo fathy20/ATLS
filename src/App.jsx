@@ -8,6 +8,7 @@ import NewsTicker from './components/NewsTicker'
 import Home from './pages/Home'
 import Products from './pages/Products'
 import ProductDetail from './pages/ProductDetail'
+import Brands from './pages/Brands'
 import logo from '../logo_conmpany/logo_atls.png'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -69,6 +70,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/brands" element={<Brands />} />
         <Route path="/products" element={<Products />} />
         <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>

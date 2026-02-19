@@ -102,8 +102,8 @@ export default function ProductDetail() {
   }
 
   return (
-    <section style={{ padding: '120px 4% 4rem', background: 'var(--white)' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+    <section className="product-detail-section" style={{ padding: '120px 4% 4rem', background: 'var(--white)' }}>
+      <div className="product-detail-container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <button 
           onClick={() => navigate(-1)}
           style={{
@@ -123,29 +123,31 @@ export default function ProductDetail() {
           ← العودة
         </button>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }}>
-          <div style={{ 
+        <div className="product-detail-layout" style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'center' }}>
+          <div className="product-image-container" style={{ 
             background: `linear-gradient(135deg, ${product.color}10 0%, #f8f9fa 100%)`,
             borderRadius: '20px',
             padding: '3rem',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            minHeight: '500px'
+            minHeight: '400px',
+            width: '100%',
+            maxWidth: '600px'
           }}>
             <img 
               src={product.image} 
               alt={product.nameAr} 
               style={{ 
                 maxWidth: '100%', 
-                maxHeight: '450px',
+                maxHeight: '400px',
                 objectFit: 'contain',
                 filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.15))'
               }} 
             />
           </div>
 
-          <div style={{ textAlign: 'right' }}>
+          <div className="product-info-container" style={{ textAlign: 'center', width: '100%', maxWidth: '800px' }}>
             <p style={{ 
               fontSize: '0.75rem', 
               letterSpacing: '2px', 
@@ -220,7 +222,7 @@ export default function ProductDetail() {
               }}>
                 المميزات
               </h3>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
+              <div className="product-features-list" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem', justifyContent: 'center' }}>
                 {product.features.map((feature, i) => (
                   <span 
                     key={i}

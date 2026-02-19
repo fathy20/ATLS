@@ -42,7 +42,7 @@ html.lenis, html.lenis body {
 
 body {
   font-family: 'Poppins', 'Cairo', sans-serif;
-  background-color: var(--white);
+  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
   color: var(--text-dark);
   overflow-x: hidden;
   font-size: 14px;
@@ -65,4 +65,17 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--primary);
   border-radius: 4px;
+}
+
+
+/* Fix navbar position during smooth scroll */
+html, body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Ensure fixed elements stay fixed during Lenis scroll */
+.navbar {
+  position: fixed !important;
+  transform: translate3d(0, 0, 0) !important;
 }

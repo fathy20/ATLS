@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -11,8 +11,51 @@ import ebPlus from '../assets/eb-plus.webp'
 import orangeImg from '../assets/organge.png'
 import purpleImg from '../assets/purple.png'
 import greenImg from '../assets/green.png'
+import besserLogo from '../../logas/besser_logo.png'
+import fantonLogo from '../../logas/FANTON_LOGO_IT_Feb2017.png'
+import gewissLogo from '../../logas/GewissDX15016.jpg'
+import tecnoLogo from '../../logas/logo_tecno_home.png'
+import img1256 from '../../logas/IMG_1256.PNG'
 
 gsap.registerPlugin(ScrollTrigger)
+
+const brands = [
+  {
+    id: 'performance-in-lighting',
+    name: 'Performance in Lighting',
+    nameAr: 'بيرفورمانس',
+    logo: gewissLogo,
+    color: '#FF6B35'
+  },
+  {
+    id: 'fanton',
+    name: 'Fanton',
+    nameAr: 'فانتون',
+    logo: fantonLogo,
+    color: '#DC2F02'
+  },
+  {
+    id: 'besser',
+    name: 'Besser',
+    nameAr: 'بيسر',
+    logo: besserLogo,
+    color: '#D00000'
+  },
+  {
+    id: 'tecno',
+    name: 'Tecno Home',
+    nameAr: 'تكنو هوم',
+    logo: tecnoLogo,
+    color: '#0077B6'
+  },
+  {
+    id: 'brand5',
+    name: 'Brand 5',
+    nameAr: 'علامة 5',
+    logo: img1256,
+    color: '#023E8A'
+  }
+]
 
 const electricalProducts = [
   { 
@@ -24,7 +67,8 @@ const electricalProducts = [
     color: '#1E88E5',
     tagline: 'إضاءة مودولارية احترافية',
     desc: 'داون لايت LED مودولار بقوة 10 واط من سلسلة DLSB، مصنوع من الألومنيوم المضغوط مع عاكس ساتان لتوزيع متجانس للضوء.',
-    features: ['10W Power Consumption', '1000 Lumens Output', 'CRI 90+', 'Modular Design', 'Satin Reflector']
+    features: ['10W Power Consumption', '1000 Lumens Output', 'CRI 90+', 'Modular Design', 'Satin Reflector'],
+    brand: 'performance-in-lighting'
   },
   { 
     id: 14, 
@@ -35,7 +79,8 @@ const electricalProducts = [
     color: '#1976D2',
     tagline: 'تصميم دائري أنيق',
     desc: 'داون لايت دائري بقوة 15 واط مع تصميم عصري وإضاءة موحدة، مثالي للمكاتب والمساحات التجارية.',
-    features: ['15W Power Consumption', '1500 Lumens Output', 'Round Design', 'CRI 90+', 'IP44 Rated']
+    features: ['15W Power Consumption', '1500 Lumens Output', 'Round Design', 'CRI 90+', 'IP44 Rated'],
+    brand: 'performance-in-lighting'
   },
   { 
     id: 15, 
@@ -46,7 +91,8 @@ const electricalProducts = [
     color: '#0277BD',
     tagline: 'تصميم مربع مميز',
     desc: 'داون لايت مربع بقوة 20 واط مع تصميم هندسي حديث وإضاءة قوية للمساحات الكبيرة.',
-    features: ['20W Power Consumption', '2000 Lumens Output', 'Square Design', 'IP65 Rated', 'High Output']
+    features: ['20W Power Consumption', '2000 Lumens Output', 'Square Design', 'IP65 Rated', 'High Output'],
+    brand: 'performance-in-lighting'
   },
   { 
     id: 16, 
@@ -57,7 +103,8 @@ const electricalProducts = [
     color: '#0288D1',
     tagline: 'إضاءة مركزة قابلة للتوجيه',
     desc: 'سبوت لايت مانجو ميدي بقوة 12 واط مع إمكانية التوجيه والتعديل، مثالي لإبراز التفاصيل المعمارية.',
-    features: ['12W Power Consumption', 'Adjustable Direction', 'COB LED', 'CRI 90+', 'Compact Design']
+    features: ['12W Power Consumption', 'Adjustable Direction', 'COB LED', 'CRI 90+', 'Compact Design'],
+    brand: 'performance-in-lighting'
   },
   { 
     id: 17, 
@@ -68,7 +115,8 @@ const electricalProducts = [
     color: '#039BE5',
     tagline: 'إضاءة احترافية عالية الجودة',
     desc: 'سبوت لايت إيليا بقوة 15 واط مع معامل CRI 95+ للحصول على ألوان طبيعية ودقيقة، مثالي للمعارض والمحلات.',
-    features: ['15W Power Consumption', 'CRI 95+', 'Adjustable Beam', 'Premium Quality', '50,000 Hours']
+    features: ['15W Power Consumption', 'CRI 95+', 'Adjustable Beam', 'Premium Quality', '50,000 Hours'],
+    brand: 'performance-in-lighting'
   },
   { 
     id: 18, 
@@ -79,7 +127,8 @@ const electricalProducts = [
     color: '#01579B',
     tagline: 'إضاءة طوارئ آمنة',
     desc: 'سبوت لايت طوارئ EB+ بقوة 6 واط مع بطارية احتياطية 3 ساعات، معتمد ضد الحريق ومقاوم للماء IP65.',
-    features: ['6W Power Consumption', '3h Emergency Backup', 'IP65 Rated', 'Fire Rated', 'Manual Test']
+    features: ['6W Power Consumption', '3h Emergency Backup', 'IP65 Rated', 'Fire Rated', 'Manual Test'],
+    brand: 'performance-in-lighting'
   },
 ]
 
@@ -186,8 +235,24 @@ const homeProducts = [
 ]
 
 export default function Products() {
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
   const category = searchParams.get('category') || 'electrical'
+  const brand = searchParams.get('brand')
+  const [selectedBrand, setSelectedBrand] = useState(brand || 'all')
+
+  // Filter products by brand if brand parameter exists
+  const filteredElectricalProducts = selectedBrand === 'all'
+    ? electricalProducts
+    : electricalProducts.filter(p => p.brand === selectedBrand)
+
+  const handleBrandChange = (brandId) => {
+    setSelectedBrand(brandId)
+    if (brandId === 'all') {
+      setSearchParams({ category })
+    } else {
+      setSearchParams({ category, brand: brandId })
+    }
+  }
 
   useEffect(() => {
     const productCards = gsap.utils.toArray('.product-card-grid')
@@ -223,11 +288,93 @@ export default function Products() {
         <div>
           <div className="products-header" style={{ marginBottom: '2rem' }}>
             <h3 className="products-title" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)' }}>
-              <strong>منتجات كهربائية</strong>
+              <strong>المواد الكهربائية</strong>
             </h3>
           </div>
+
+          {/* Brand Filter - Modern Design */}
+          <div style={{ 
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+            gap: '1.5rem',
+            marginBottom: '3rem',
+            padding: '2rem 4%',
+            maxWidth: '900px',
+            margin: '0 auto 3rem auto'
+          }}>
+            {brands.map((b) => (
+              <div
+                key={b.id}
+                onClick={() => handleBrandChange(b.id)}
+                style={{
+                  cursor: 'pointer',
+                  background: 'var(--white)',
+                  borderRadius: '12px',
+                  padding: '1.5rem 1rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  border: selectedBrand === b.id ? `3px solid ${b.color}` : '3px solid transparent',
+                  boxShadow: selectedBrand === b.id 
+                    ? `0 8px 25px ${b.color}30, 0 0 0 1px ${b.color}20`
+                    : '0 2px 8px rgba(0,0,0,0.06)',
+                  transform: selectedBrand === b.id ? 'translateY(-4px) scale(1.02)' : 'translateY(0) scale(1)',
+                  opacity: selectedBrand === 'all' || selectedBrand === b.id ? 1 : 0.5,
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+                onMouseEnter={(e) => {
+                  if (selectedBrand !== b.id) {
+                    e.currentTarget.style.transform = 'translateY(-2px) scale(1.01)'
+                    e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)'
+                    e.currentTarget.style.opacity = '0.85'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (selectedBrand !== b.id) {
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.06)'
+                    e.currentTarget.style.opacity = selectedBrand === 'all' ? '1' : '0.5'
+                  }
+                }}
+              >
+                {selectedBrand === b.id && (
+                  <div style={{
+                    position: 'absolute',
+                    top: '8px',
+                    right: '8px',
+                    width: '20px',
+                    height: '20px',
+                    borderRadius: '50%',
+                    background: b.color,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'white',
+                    fontSize: '12px',
+                    fontWeight: 'bold'
+                  }}>
+                    ✓
+                  </div>
+                )}
+                <img 
+                  src={b.logo} 
+                  alt={b.name}
+                  style={{
+                    height: '50px',
+                    width: 'auto',
+                    maxWidth: '100%',
+                    objectFit: 'contain',
+                    filter: selectedBrand === b.id ? 'none' : 'grayscale(20%)'
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+
           <div className="products-grid-layout">
-            {electricalProducts.map((product) => (
+            {filteredElectricalProducts.map((product) => (
               <Link 
                 key={product.id}
                 to={`/product/${product.id}`}

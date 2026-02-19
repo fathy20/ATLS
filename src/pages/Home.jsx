@@ -243,7 +243,7 @@ export default function Home() {
             نجمع بين التكنولوجيا الحديثة والجودة العالية لنقدم لك تجربة استثنائية.
           </p>
           <div className="hero-buttons">
-            <Link to="/products?category=electrical" className="hero-btn hero-btn-electrical">
+            <Link to="/brands" className="hero-btn hero-btn-electrical">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
               </svg>
