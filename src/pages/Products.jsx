@@ -2,7 +2,12 @@ import { useEffect } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import lambImg from '../assets/lamb.png'
+import dlsbLed from '../assets/dlsb-led.webp'
+import dlRound from '../assets/dl-round.webp'
+import dlSquare from '../assets/dl-square.webp'
+import mangoMidi from '../assets/mango-midi.webp'
+import eliaDl from '../assets/elia-dl.webp'
+import ebPlus from '../assets/eb-plus.webp'
 import orangeImg from '../assets/organge.png'
 import purpleImg from '../assets/purple.png'
 import greenImg from '../assets/green.png'
@@ -11,37 +16,70 @@ gsap.registerPlugin(ScrollTrigger)
 
 const electricalProducts = [
   { 
-    id: 1, 
-    name: 'LED Bulb', 
-    nameAr: 'لمبات LED',
-    price: '40W - 720 Lumens', 
-    image: lambImg,
+    id: 13, 
+    name: 'DLSB LED', 
+    nameAr: 'داون لايت DLSB LED',
+    price: '10W - 1000 Lumens', 
+    image: dlsbLed,
     color: '#1E88E5',
-    tagline: 'إضاءة موفرة للطاقة',
-    desc: 'لمبات LED عالية الجودة توفر إضاءة ساطعة مع استهلاك منخفض للطاقة وعمر افتراضي طويل.',
-    features: ['Real Watt 40W', '720 Lumens', 'Energy Efficient']
+    tagline: 'إضاءة مودولارية احترافية',
+    desc: 'داون لايت LED مودولار بقوة 10 واط من سلسلة DLSB، مصنوع من الألومنيوم المضغوط مع عاكس ساتان لتوزيع متجانس للضوء.',
+    features: ['10W Power Consumption', '1000 Lumens Output', 'CRI 90+', 'Modular Design', 'Satin Reflector']
   },
   { 
-    id: 7, 
-    name: 'Modern Chandelier', 
-    nameAr: 'ثريا مودرن',
-    price: 'Crystal LED', 
-    image: lambImg,
+    id: 14, 
+    name: 'DL ROUND', 
+    nameAr: 'داون لايت دائري',
+    price: '15W - 1500 Lumens', 
+    image: dlRound,
     color: '#1976D2',
-    tagline: 'أناقة لا تنتهي',
-    desc: 'ثريا بتصميم عصري جذاب تضفي لمسة من الفخامة على صالون منزلك.',
-    features: ['Crystal Glass', 'LED Lights', 'Remote Control']
+    tagline: 'تصميم دائري أنيق',
+    desc: 'داون لايت دائري بقوة 15 واط مع تصميم عصري وإضاءة موحدة، مثالي للمكاتب والمساحات التجارية.',
+    features: ['15W Power Consumption', '1500 Lumens Output', 'Round Design', 'CRI 90+', 'IP44 Rated']
   },
   { 
-    id: 9, 
-    name: 'Table Lamp', 
-    nameAr: 'أباجورة مكتب',
-    price: 'Adjustable', 
-    image: purpleImg,
+    id: 15, 
+    name: 'DL SQUARE', 
+    nameAr: 'داون لايت مربع',
+    price: '20W - 2000 Lumens', 
+    image: dlSquare,
     color: '#0277BD',
-    tagline: 'إضاءة مريحة',
-    desc: 'أباجورة مكتب بتصميم أنيق وإضاءة مريحة للعين للقراءة والعمل.',
-    features: ['Adjustable Arm', 'Eye Protection', 'Touch Control']
+    tagline: 'تصميم مربع مميز',
+    desc: 'داون لايت مربع بقوة 20 واط مع تصميم هندسي حديث وإضاءة قوية للمساحات الكبيرة.',
+    features: ['20W Power Consumption', '2000 Lumens Output', 'Square Design', 'IP65 Rated', 'High Output']
+  },
+  { 
+    id: 16, 
+    name: 'MANGO+ MIDI', 
+    nameAr: 'سبوت لايت مانجو ميدي',
+    price: '12W - Adjustable', 
+    image: mangoMidi,
+    color: '#0288D1',
+    tagline: 'إضاءة مركزة قابلة للتوجيه',
+    desc: 'سبوت لايت مانجو ميدي بقوة 12 واط مع إمكانية التوجيه والتعديل، مثالي لإبراز التفاصيل المعمارية.',
+    features: ['12W Power Consumption', 'Adjustable Direction', 'COB LED', 'CRI 90+', 'Compact Design']
+  },
+  { 
+    id: 17, 
+    name: 'ELIA DL', 
+    nameAr: 'سبوت لايت إيليا',
+    price: '15W - High CRI', 
+    image: eliaDl,
+    color: '#039BE5',
+    tagline: 'إضاءة احترافية عالية الجودة',
+    desc: 'سبوت لايت إيليا بقوة 15 واط مع معامل CRI 95+ للحصول على ألوان طبيعية ودقيقة، مثالي للمعارض والمحلات.',
+    features: ['15W Power Consumption', 'CRI 95+', 'Adjustable Beam', 'Premium Quality', '50,000 Hours']
+  },
+  { 
+    id: 18, 
+    name: 'EB+', 
+    nameAr: 'سبوت لايت طوارئ EB+',
+    price: '6W - Emergency', 
+    image: ebPlus,
+    color: '#01579B',
+    tagline: 'إضاءة طوارئ آمنة',
+    desc: 'سبوت لايت طوارئ EB+ بقوة 6 واط مع بطارية احتياطية 3 ساعات، معتمد ضد الحريق ومقاوم للماء IP65.',
+    features: ['6W Power Consumption', '3h Emergency Backup', 'IP65 Rated', 'Fire Rated', 'Manual Test']
   },
 ]
 
