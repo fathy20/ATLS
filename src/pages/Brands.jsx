@@ -14,19 +14,11 @@ const brands = [
     color: '#FF6B35'
   },
   {
-    id: 'gewiss',
-    name: 'Gewiss',
-    nameAr: 'جيويس',
-    logo: gewissLogo,
-    description: 'منتجات كهربائية عالية الجودة',
-    color: '#E85D04'
-  },
-  {
     id: 'fanton',
     name: 'Fanton',
     nameAr: 'فانتون',
     logo: fantonLogo,
-    description: 'أنظمة كهربائية متطورة',
+    description: 'أنظمة كهربائية متطورة وحلول تركيب عالية الجودة',
     color: '#DC2F02'
   },
   {
@@ -34,8 +26,16 @@ const brands = [
     name: 'Besser',
     nameAr: 'بيسر',
     logo: besserLogo,
-    description: 'حلول إضاءة مبتكرة',
+    description: 'حلول إضاءة مبتكرة وتصاميم عصرية',
     color: '#D00000'
+  },
+  {
+    id: 'tecno',
+    name: 'Tecno Home',
+    nameAr: 'تكنو هوم',
+    logo: tecnoLogo,
+    description: 'تقنيات منزلية ذكية ومنتجات كهربائية متقدمة',
+    color: '#0077B6'
   }
 ]
 

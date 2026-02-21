@@ -1612,7 +1612,7 @@
 /* Brand Logos Filter - Modern Responsive */
 @media (max-width: 768px) {
   .brand-filter-container {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)) !important;
     gap: 1rem !important;
     padding: 1.5rem 3% !important;
   }
@@ -1622,7 +1622,15 @@
   }
 
   .brand-filter-container img {
-    height: 42px !important;
+    height: 45px !important;
+  }
+
+  .brand-filter-container p {
+    font-size: 0.75rem !important;
+  }
+
+  .brand-filter-container p:last-child {
+    font-size: 0.65rem !important;
   }
 }
 
@@ -1638,6 +1646,14 @@
   }
 
   .brand-filter-container img {
-    height: 38px !important;
+    height: 40px !important;
+  }
+
+  .brand-filter-container p {
+    font-size: 0.7rem !important;
+  }
+
+  .brand-filter-container p:last-child {
+    font-size: 0.6rem !important;
   }
 }

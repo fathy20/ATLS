@@ -23,37 +23,42 @@ const brands = [
   {
     id: 'performance-in-lighting',
     name: 'Performance in Lighting',
-    nameAr: 'بيرفورمانس',
+    nameAr: 'بيرفورمانس إن لايتنج',
     logo: gewissLogo,
-    color: '#FF6B35'
+    color: '#FF6B35',
+    description: 'حلول إضاءة LED احترافية للمساحات التجارية والمكتبية'
   },
   {
     id: 'fanton',
     name: 'Fanton',
     nameAr: 'فانتون',
     logo: fantonLogo,
-    color: '#DC2F02'
+    color: '#DC2F02',
+    description: 'أنظمة كهربائية متطورة وحلول تركيب عالية الجودة'
   },
   {
     id: 'besser',
     name: 'Besser',
     nameAr: 'بيسر',
     logo: besserLogo,
-    color: '#D00000'
+    color: '#D00000',
+    description: 'حلول إضاءة مبتكرة وتصاميم عصرية'
   },
   {
     id: 'tecno',
     name: 'Tecno Home',
     nameAr: 'تكنو هوم',
     logo: tecnoLogo,
-    color: '#0077B6'
+    color: '#0077B6',
+    description: 'تقنيات منزلية ذكية ومنتجات كهربائية متقدمة'
   },
   {
     id: 'brand5',
     name: 'Brand 5',
     nameAr: 'علامة 5',
     logo: img1256,
-    color: '#023E8A'
+    color: '#023E8A',
+    description: 'منتجات كهربائية عالية الجودة'
   }
 ]
 
@@ -279,10 +284,6 @@ export default function Products() {
 
   return (
     <section className="products-section" style={{ paddingTop: '120px' }}>
-      <div className="products-header">
-        <p className="section-tag">كتالوج المنتجات</p>
-      </div>
-
       {/* Electrical Products Section */}
       {category === 'electrical' && (
         <div>
@@ -295,11 +296,11 @@ export default function Products() {
           {/* Brand Filter - Modern Design */}
           <div style={{ 
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
             gap: '1.5rem',
             marginBottom: '3rem',
             padding: '2rem 4%',
-            maxWidth: '900px',
+            maxWidth: '1000px',
             margin: '0 auto 3rem auto'
           }}>
             {brands.map((b) => (
@@ -312,8 +313,9 @@ export default function Products() {
                   borderRadius: '12px',
                   padding: '1.5rem 1rem',
                   display: 'flex',
+                  flexDirection: 'column',
                   alignItems: 'center',
-                  justifyContent: 'center',
+                  gap: '0.8rem',
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                   border: selectedBrand === b.id ? `3px solid ${b.color}` : '3px solid transparent',
                   boxShadow: selectedBrand === b.id 
@@ -369,6 +371,28 @@ export default function Products() {
                     filter: selectedBrand === b.id ? 'none' : 'grayscale(20%)'
                   }}
                 />
+                <div style={{
+                  textAlign: 'center',
+                  width: '100%'
+                }}>
+                  <p style={{
+                    fontSize: '0.85rem',
+                    fontWeight: '600',
+                    color: selectedBrand === b.id ? b.color : 'var(--text-dark)',
+                    marginBottom: '0.3rem',
+                    fontFamily: 'Cairo, sans-serif'
+                  }}>
+                    {b.nameAr}
+                  </p>
+                  <p style={{
+                    fontSize: '0.7rem',
+                    color: 'var(--text-light)',
+                    lineHeight: '1.4',
+                    fontFamily: 'Cairo, sans-serif'
+                  }}>
+                    {b.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
